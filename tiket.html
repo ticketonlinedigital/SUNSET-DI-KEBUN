@@ -215,9 +215,9 @@ Music Show with Green, Conservation, and Culture Movement
 <button onclick="ubah('day1',1)">+</button>
 </div>
 
-<button id="btn1" class="add" onclick="pesan('1 DAY PASS',250000,'day1')">
+<div class="add active">
 ADDITIONAL TICKET
-</button>
+</div>
 
 </div>
 
@@ -237,9 +237,9 @@ ADDITIONAL TICKET
 <button onclick="ubah('day2',1)">+</button>
 </div>
 
-<button id="btn2" class="add" onclick="pesan('2 DAY PASS',450000,'day2')">
+<div class="add active">
 ADDITIONAL TICKET
-</button>
+</div>
 
 </div>
 
@@ -253,7 +253,7 @@ Jumlah Dipilih: <span id="total">0</span>
 </section>
 
 
-<button id="buyBtn" class="buy">
+<button id="buyBtn" class="buy" onclick="beliSekarang()">
 🎟️ Beli Tiket
 </button>
 
@@ -274,8 +274,7 @@ total+=tiket[x];
 document.getElementById("total").innerHTML=total;
 
 
-document.getElementById("btn1").classList.toggle("active",tiket.day1>0);
-document.getElementById("btn2").classList.toggle("active",tiket.day2>0);
+
 document.getElementById("buyBtn").classList.toggle("active",total>0);
 
 }
@@ -310,16 +309,20 @@ window.location.href="from.html";
 }
 
 
-document.getElementById("buyBtn").onclick=function(){
+function beliSekarang(){
 
 if((tiket.day1+tiket.day2)<=0){
 alert("Pilih tiket dulu");
 return;
 }
 
-document.querySelector(".box").scrollIntoView({
-behavior:"smooth"
-});
+let type=tiket.day1>0?'day1':'day2';
+
+if(tiket.day1>0){
+pesan('1 DAY PASS',250000,'day1');
+}else{
+pesan('2 DAY PASS',450000,'day2');
+}
 
 }
 
