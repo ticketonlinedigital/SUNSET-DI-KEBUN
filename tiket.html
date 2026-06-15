@@ -1,4 +1,4 @@
-l<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
@@ -13,68 +13,162 @@ margin:0;
 font-family:Poppins,sans-serif;
 background:linear-gradient(180deg,#10a8ed,#ffd19c);
 color:#111;
+padding-bottom:120px;
 }
+
 .navbar{
-position:sticky;top:12px;z-index:20;
+position:sticky;top:12px;z-index:10;
 width:92%;max-width:1150px;margin:auto;
-background:#ffffffcc;backdrop-filter:blur(10px);
-border-radius:25px;padding:14px 22px;
-display:flex;justify-content:space-between;
+background:#ffffffcc;
+backdrop-filter:blur(10px);
+border-radius:25px;
+padding:14px 22px;
+display:flex;
+justify-content:space-between;
 box-shadow:0 10px 25px #0003;
 }
+
 .brand{font-size:22px;font-weight:800}
-.hero{max-width:1150px;margin:auto;padding:35px 18px;text-align:center}
-h1{font-size:clamp(38px,8vw,80px);margin:20px 0}
+
+.hero{
+max-width:1150px;
+margin:auto;
+padding:35px 18px;
+text-align:center;
+}
+
+h1{font-size:clamp(38px,8vw,80px)}
+
 .tag{
-display:inline-block;background:#ffd54b;
-padding:12px 22px;border-radius:40px;font-weight:800
+display:inline-block;
+background:#ffd54b;
+padding:12px 22px;
+border-radius:40px;
+font-weight:800;
 }
+
 .poster{
-margin-top:30px;display:grid;
+display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px
+gap:25px;
+margin-top:30px;
 }
+
 .poster img{
-width:100%;border-radius:25px;
-box-shadow:0 15px 30px #0003
-}
-.box{
-margin-top:35px;background:#ffffff88;
-backdrop-filter:blur(12px);
-border-radius:30px;padding:25px
-}
-.cards{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px
-}
-.card{
-background:white;border-radius:25px;padding:25px;
-box-shadow:0 10px 25px #0002
-}
-.price{font-size:28px;font-weight:800}
-.stock{
-font-weight:800;padding:10px;border-radius:15px;margin-top:10px
-}
-.warn{background:#ffe48a;animation:pulse 1s infinite}
-.normal{background:#b6f5ff;animation:float 1.5s infinite}
-.qty{
-display:flex;justify-content:center;align-items:center;gap:18px;margin:18px
-}
-.qty button{
-width:45px;height:45px;border-radius:50%;border:0;
-background:#087cf0;color:white;font-size:25px
-}
-.btn{
 width:100%;
-background:linear-gradient(135deg,#087cf0,#00c6ff);
-color:white;border:0;padding:16px;
-border-radius:18px;font-weight:800;cursor:pointer;font-size:16px
+border-radius:25px;
 }
-.total{margin-top:25px;font-size:22px;font-weight:800}
-.info{line-height:1.8;margin-top:25px}
-footer{text-align:center;padding:30px;font-weight:700}
+
+.box{
+margin-top:35px;
+background:#ffffff88;
+backdrop-filter:blur(12px);
+border-radius:30px;
+padding:25px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+.card{
+background:#f5f8ff;
+border-radius:25px;
+padding:25px;
+box-shadow:0 10px 25px #0002;
+}
+
+.price{
+font-size:28px;
+font-weight:800;
+}
+
+.stock{
+font-weight:800;
+padding:10px;
+border-radius:15px;
+}
+
+.warn{
+background:#ffe48a;
+animation:pulse 1s infinite;
+}
+
+.normal{
+background:#b6f5ff;
+animation:float 1.5s infinite;
+}
+
+.qty{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:18px;
+margin:18px;
+}
+
+.qty button{
+width:45px;
+height:45px;
+border:0;
+border-radius:50%;
+background:#087cf0;
+color:white;
+font-size:25px;
+}
+
+.add{
+width:100%;
+padding:15px;
+border:0;
+border-radius:18px;
+font-weight:800;
+background:#ddd;
+color:#888;
+font-size:16px;
+transition:.3s;
+}
+
+.add.active{
+background:linear-gradient(135deg,#087cf0,#00c6ff);
+color:white;
+}
+
+
+.buy{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+width:85%;
+max-width:500px;
+padding:17px;
+border:0;
+border-radius:22px;
+font-size:18px;
+font-weight:800;
+background:#cfd8ff;
+color:white;
+z-index:20;
+box-shadow:0 10px 30px #0003;
+}
+
+.buy.active{
+background:#3f5bea;
+}
+
+
+.total{
+font-weight:800;
+font-size:22px;
+margin-top:20px;
+}
+
 @keyframes pulse{50%{transform:scale(1.08)}}
 @keyframes float{50%{transform:translateY(-6px)}}
+
 </style>
 </head>
 
@@ -98,15 +192,18 @@ Music Show with Green, Conservation, and Culture Movement
 <img src="poster2.jpg">
 </div>
 
+
 <div class="box">
 
 <h2>Pilih Tiket</h2>
 
 <div class="cards">
 
+
 <div class="card">
+
 <h2>1 DAY PASS</h2>
-<p>Akses festival 1 hari penuh.</p>
+<p>Akses festival 1 hari penuh</p>
 
 <div class="price">Rp250.000</div>
 
@@ -118,16 +215,17 @@ Music Show with Green, Conservation, and Culture Movement
 <button onclick="ubah('day1',1)">+</button>
 </div>
 
-<button class="btn" onclick="pesan('1 DAY PASS',250000,'day1')">
-PESAN TIKET SEKARANG
+<button id="btn1" class="add" onclick="pesan('1 DAY PASS',250000,'day1')">
+ADDITIONAL TICKET
 </button>
+
 </div>
 
 
 <div class="card">
 
 <h2>2 DAY PASS</h2>
-<p>Akses festival selama 2 hari.</p>
+<p>Akses festival selama 2 hari</p>
 
 <div class="price">Rp450.000</div>
 
@@ -139,43 +237,30 @@ PESAN TIKET SEKARANG
 <button onclick="ubah('day2',1)">+</button>
 </div>
 
-<button class="btn" onclick="pesan('2 DAY PASS',450000,'day2')">
-PESAN TIKET SEKARANG
+<button id="btn2" class="add" onclick="pesan('2 DAY PASS',450000,'day2')">
+ADDITIONAL TICKET
 </button>
 
 </div>
 
 </div>
 
-
 <div class="total">
-Jumlah Dipilih:
-<span id="total">0</span>
-</div>
-
-<div class="info">
-<b>Syarat & Ketentuan</b><br>
-Tiket tidak dapat dikembalikan.<br>
-Pastikan data pemesanan benar.<br>
-E-ticket wajib dibawa saat masuk.
+Jumlah Dipilih: <span id="total">0</span>
 </div>
 
 </div>
-
 </section>
 
 
-<footer>
-© Sunset di Kebun × Dyandra Tiket
-</footer>
+<button id="buyBtn" class="buy">
+🎟️ Beli Tiket
+</button>
 
 
 <script>
 
-let tiket={
-day1:0,
-day2:0
-};
+let tiket={day1:0,day2:0};
 
 function tampil(){
 
@@ -188,7 +273,13 @@ total+=tiket[x];
 
 document.getElementById("total").innerHTML=total;
 
+
+document.getElementById("btn1").classList.toggle("active",tiket.day1>0);
+document.getElementById("btn2").classList.toggle("active",tiket.day2>0);
+document.getElementById("buyBtn").classList.toggle("active",total>0);
+
 }
+
 
 function ubah(type,val){
 
@@ -206,7 +297,7 @@ tampil();
 function pesan(nama,harga,type){
 
 if(tiket[type]<=0){
-alert("Silahkan pilih jumlah tiket dulu");
+alert("Pilih jumlah tiket dulu");
 return;
 }
 
@@ -215,6 +306,20 @@ localStorage.setItem("jumlahTiket",tiket[type]);
 localStorage.setItem("totalPembayaran",harga*tiket[type]);
 
 window.location.href="from.html";
+
+}
+
+
+document.getElementById("buyBtn").onclick=function(){
+
+if((tiket.day1+tiket.day2)<=0){
+alert("Pilih tiket dulu");
+return;
+}
+
+document.querySelector(".box").scrollIntoView({
+behavior:"smooth"
+});
 
 }
 
