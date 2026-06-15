@@ -1,449 +1,226 @@
-<!DOCTYPE html>
+l<!DOCTYPE html>
 <html lang="id">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
 <title>Sunset di Kebun - Official Ticket</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-
 *{box-sizing:border-box}
-
 body{
 margin:0;
 font-family:Poppins,sans-serif;
 background:linear-gradient(180deg,#10a8ed,#ffd19c);
 color:#111;
 }
-
 .navbar{
-position:sticky;
-top:12px;
-z-index:20;
-width:92%;
-max-width:1150px;
-margin:auto;
-background:#ffffffcc;
-backdrop-filter:blur(10px);
-border-radius:25px;
-padding:14px 22px;
-display:flex;
-justify-content:space-between;
+position:sticky;top:12px;z-index:20;
+width:92%;max-width:1150px;margin:auto;
+background:#ffffffcc;backdrop-filter:blur(10px);
+border-radius:25px;padding:14px 22px;
+display:flex;justify-content:space-between;
 box-shadow:0 10px 25px #0003;
 }
-
-.brand{
-font-size:22px;
-font-weight:800;
-}
-
-.hero{
-max-width:1150px;
-margin:auto;
-padding:35px 18px;
-text-align:center;
-}
-
-h1{
-font-size:clamp(38px,8vw,80px);
-margin:20px 0;
-}
-
+.brand{font-size:22px;font-weight:800}
+.hero{max-width:1150px;margin:auto;padding:35px 18px;text-align:center}
+h1{font-size:clamp(38px,8vw,80px);margin:20px 0}
 .tag{
-display:inline-block;
-background:#ffd54b;
-padding:12px 22px;
-border-radius:40px;
-font-weight:800;
+display:inline-block;background:#ffd54b;
+padding:12px 22px;border-radius:40px;font-weight:800
 }
-
 .poster{
-margin-top:30px;
-display:grid;
+margin-top:30px;display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
+gap:25px
 }
-
 .poster img{
-width:100%;
-border-radius:25px;
-box-shadow:0 15px 30px #0003;
+width:100%;border-radius:25px;
+box-shadow:0 15px 30px #0003
 }
-
 .box{
-margin-top:35px;
-background:#ffffff88;
+margin-top:35px;background:#ffffff88;
 backdrop-filter:blur(12px);
-border-radius:30px;
-padding:25px;
+border-radius:30px;padding:25px
 }
-
 .cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px
 }
-
 .card{
-background:white;
-border-radius:25px;
-padding:25px;
-box-shadow:0 10px 25px #0002;
+background:white;border-radius:25px;padding:25px;
+box-shadow:0 10px 25px #0002
 }
-
-.price{
-font-size:28px;
-font-weight:800;
-}
-
+.price{font-size:28px;font-weight:800}
 .stock{
-font-weight:800;
-padding:10px;
-border-radius:15px;
-margin-top:10px;
+font-weight:800;padding:10px;border-radius:15px;margin-top:10px
 }
-
-.warn{
-background:#ffe48a;
-animation:pulse 1s infinite;
-}
-
-.normal{
-background:#b6f5ff;
-animation:float 1.5s infinite;
-}
-
-
+.warn{background:#ffe48a;animation:pulse 1s infinite}
+.normal{background:#b6f5ff;animation:float 1.5s infinite}
 .qty{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:18px;
-margin:18px;
+display:flex;justify-content:center;align-items:center;gap:18px;margin:18px
 }
-
-
 .qty button{
-width:45px;
-height:45px;
-border-radius:50%;
-border:0;
-background:#087cf0;
-color:white;
-font-size:25px;
+width:45px;height:45px;border-radius:50%;border:0;
+background:#087cf0;color:white;font-size:25px
 }
-
-
 .btn{
 width:100%;
 background:linear-gradient(135deg,#087cf0,#00c6ff);
-color:white;
-border:0;
-padding:16px;
-border-radius:18px;
-font-weight:800;
-cursor:pointer;
-font-size:16px;
+color:white;border:0;padding:16px;
+border-radius:18px;font-weight:800;cursor:pointer;font-size:16px
 }
-
-
-.total{
-margin-top:25px;
-font-size:22px;
-font-weight:800;
-}
-
-
-.info{
-line-height:1.8;
-margin-top:25px;
-}
-
-
-footer{
-text-align:center;
-padding:30px;
-font-weight:700;
-}
-
-
-@keyframes pulse{
-50%{transform:scale(1.08)}
-}
-
-
-@keyframes float{
-50%{transform:translateY(-6px)}
-}
-
+.total{margin-top:25px;font-size:22px;font-weight:800}
+.info{line-height:1.8;margin-top:25px}
+footer{text-align:center;padding:30px;font-weight:700}
+@keyframes pulse{50%{transform:scale(1.08)}}
+@keyframes float{50%{transform:translateY(-6px)}}
 </style>
-
 </head>
-
 
 <body>
 
-
 <nav class="navbar">
-
-<div class="brand">
-SUNSET DI KEBUN
-</div>
-
-<div>
-Tiket
-</div>
-
+<div class="brand">SUNSET DI KEBUN</div>
+<div>Tiket</div>
 </nav>
-
-
 
 <section class="hero">
 
-
-<h1>
-Sunset di Kebun
-</h1>
-
+<h1>Sunset di Kebun</h1>
 
 <div class="tag">
 Music Show with Green, Conservation, and Culture Movement
 </div>
 
-
 <div class="poster">
-
 <img src="poster1.jpg">
-
 <img src="poster2.jpg">
-
 </div>
-
-
 
 <div class="box">
 
-
 <h2>Pilih Tiket</h2>
-
 
 <div class="cards">
 
-
-
 <div class="card">
-
 <h2>1 DAY PASS</h2>
-
 <p>Akses festival 1 hari penuh.</p>
 
+<div class="price">Rp250.000</div>
 
-<div class="price">
-Rp250.000
-</div>
-
-
-<div class="stock warn">
-🔥 HAMPIR HABIS
-</div>
-
+<div class="stock warn">🔥 HAMPIR HABIS</div>
 
 <div class="qty">
-
 <button onclick="ubah('day1',-1)">−</button>
-
 <div id="day1">0</div>
-
 <button onclick="ubah('day1',1)">+</button>
-
 </div>
-
-
 
 <button class="btn" onclick="pesan('1 DAY PASS',250000,'day1')">
-
 PESAN TIKET SEKARANG
-
 </button>
-
-
 </div>
-
-
-
 
 
 <div class="card">
 
-
 <h2>2 DAY PASS</h2>
-
-
 <p>Akses festival selama 2 hari.</p>
 
+<div class="price">Rp450.000</div>
 
-<div class="price">
-Rp450.000
-</div>
-
-
-<div class="stock normal">
-⚡ TERSISA 9
-</div>
-
+<div class="stock normal">⚡ TERSISA 9</div>
 
 <div class="qty">
-
 <button onclick="ubah('day2',-1)">−</button>
-
 <div id="day2">0</div>
-
 <button onclick="ubah('day2',1)">+</button>
-
 </div>
-
-
 
 <button class="btn" onclick="pesan('2 DAY PASS',450000,'day2')">
-
 PESAN TIKET SEKARANG
-
 </button>
 
-
 </div>
 
-
-
 </div>
-
-
 
 
 <div class="total">
-
 Jumlah Dipilih:
 <span id="total">0</span>
-
 </div>
-
-
-
 
 <div class="info">
-
 <b>Syarat & Ketentuan</b><br>
-
 Tiket tidak dapat dikembalikan.<br>
-
 Pastikan data pemesanan benar.<br>
-
 E-ticket wajib dibawa saat masuk.
-
 </div>
 
-
 </div>
-
 
 </section>
 
 
-
 <footer>
-
 © Sunset di Kebun × Dyandra Tiket
-
 </footer>
 
 
-
-
 <script>
-
 
 let tiket={
 day1:0,
 day2:0
 };
 
-
-
 function tampil(){
 
 let total=0;
 
-
 for(let x in tiket){
-
 document.getElementById(x).innerHTML=tiket[x];
-
 total+=tiket[x];
-
 }
-
 
 document.getElementById("total").innerHTML=total;
 
 }
 
-
-
-
 function ubah(type,val){
-
 
 tiket[type]+=val;
 
-
 if(tiket[type]<0){
-
 tiket[type]=0;
-
 }
-
 
 tampil();
 
 }
 
 
-
-
-
 function pesan(nama,harga,type){
 
-
 if(tiket[type]<=0){
-
 alert("Silahkan pilih jumlah tiket dulu");
-
 return;
-
 }
 
-
 localStorage.setItem("jenisTiket",nama);
-
 localStorage.setItem("jumlahTiket",tiket[type]);
-
 localStorage.setItem("totalPembayaran",harga*tiket[type]);
-
 
 window.location.href="from.html";
 
 }
 
-
 tampil();
 
-
 </script>
-
 
 </body>
 </html>
