@@ -3,21 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>LATIHAN PESTAPORA-MAKASAR - Pembayaran QRIS</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif
+}
+
 
 body{
 background:
-radial-gradient(circle at top left, rgba(255,215,0,.12), transparent 35%),
+radial-gradient(circle at top left,rgba(255,215,0,.12),transparent 35%),
 linear-gradient(135deg,#12051f,#2d0b45,#4c1d95,#7e22ce);
 color:#fff;
 padding:20px;
 min-height:100vh;
 }
 
-.container{max-width:700px;margin:auto}
+
+.container{
+max-width:700px;
+margin:auto
+}
+
 
 .card{
 background:rgba(255,255,255,.12);
@@ -26,30 +44,35 @@ border-radius:24px;
 padding:22px;
 margin-bottom:18px;
 border:1px solid rgba(255,255,255,.15);
-box-shadow:0 15px 35px rgba(0,0,0,.25);
+box-shadow:0 15px 35px rgba(0,0,0,.25)
 }
+
 
 .label{
 font-size:12px;
-color:rgba(255,255,255,.7);
+color:rgba(255,255,255,.7)
 }
+
 
 .order{
 color:#FFD700;
 font-weight:700;
-font-size:18px;
+font-size:18px
 }
+
 
 .total{
 font-size:34px;
 font-weight:800;
-color:#FFD700;
+color:#FFD700
 }
+
 
 .info{
 margin-top:10px;
-line-height:1.8;
+line-height:1.8
 }
+
 
 .timer-box{
 text-align:center;
@@ -57,35 +80,41 @@ margin-bottom:15px;
 padding:14px;
 border-radius:18px;
 background:rgba(255,215,0,.12);
-border:1px solid rgba(255,215,0,.25);
+border:1px solid rgba(255,215,0,.25)
 }
+
 
 .timer-title{
 font-size:13px;
-opacity:.8;
-margin-bottom:5px;
+opacity:.8
 }
+
 
 .timer{
 font-size:32px;
 font-weight:800;
-color:#FFD700;
+color:#FFD700
 }
 
-.qrwrap{text-align:center}
+
+.qrwrap{
+text-align:center
+}
+
 
 .qr{
 display:inline-block;
 background:#fff;
 padding:16px;
-border-radius:24px;
-box-shadow:0 10px 30px rgba(0,0,0,.25);
+border-radius:24px
 }
+
 
 .qr img{
 width:270px;
-display:block;
+display:block
 }
+
 
 .upload{
 border:2px dashed rgba(255,215,0,.4);
@@ -93,29 +122,31 @@ padding:25px;
 border-radius:20px;
 text-align:center;
 cursor:pointer;
-background:rgba(255,255,255,.05);
+background:rgba(255,255,255,.05)
 }
+
 
 .result{
 display:none;
 margin-top:15px;
 padding:15px;
 background:rgba(255,255,255,.08);
-border-radius:14px;
-border:1px solid rgba(255,255,255,.1);
+border-radius:14px
 }
+
 
 .ok{
 color:#22c55e;
-font-weight:700;
-margin-top:8px;
+font-weight:700
 }
+
 
 .confirm{
 display:flex;
 gap:10px;
-margin-top:18px;
+margin-top:18px
 }
+
 
 button{
 width:100%;
@@ -126,167 +157,574 @@ border-radius:16px;
 background:linear-gradient(135deg,#FFD700,#FFB300);
 color:#111;
 font-weight:800;
-cursor:pointer;
+cursor:pointer
 }
 
-button:disabled{opacity:.4}
+
+button:disabled{
+opacity:.4
+}
+
+
+
+/* LOADING PREMIUM */
 
 .loading{
+
 display:none;
 position:fixed;
 inset:0;
-background:rgba(0,0,0,.92);
+background:rgba(0,0,0,.96);
 z-index:99999;
 justify-content:center;
 align-items:center;
 flex-direction:column;
+
 }
 
-.spin{
-width:90px;
-height:90px;
-border:6px solid rgba(255,255,255,.15);
-border-top:6px solid #FFD700;
+
+.loader{
+
+width:110px;
+height:110px;
 border-radius:50%;
-animation:r 1s linear infinite;
+border:8px solid rgba(255,255,255,.15);
+border-top:8px solid #FFD700;
+animation:spin 1s linear infinite;
+box-shadow:0 0 30px #FFD700;
+
 }
 
-@keyframes r{to{transform:rotate(360deg)}}
+
+@keyframes spin{
+
+to{
+transform:rotate(360deg)
+}
+
+}
+
+
+.progress{
+
+width:250px;
+height:8px;
+background:#333;
+border-radius:20px;
+overflow:hidden;
+margin-top:25px;
+
+}
+
+
+.bar{
+
+height:100%;
+width:0%;
+background:#FFD700;
+animation:load 60s linear forwards;
+
+}
+
+
+@keyframes load{
+
+to{
+width:100%
+}
+
+}
+
+
+
 </style>
+
 </head>
+
+
 <body>
 
+
 <div style="text-align:center;margin-bottom:25px">
+
 <img src="logo.png" style="max-width:260px;width:100%;">
+
 </div>
+
 
 <div class="container">
 
 <div class="card">
+
 <div class="label">ORDER ID</div>
-<div id="orderId" class="order">-</div><br>
+
+<div id="orderId" class="order">-</div>
+
+
+<br>
+
 
 <div class="label">TOTAL PEMBAYARAN</div>
+
 <div id="total" class="total">Rp 0</div>
 
+
 <div class="info">
+
 <div><b>Jenis Tiket:</b> <span id="jenisTiket">-</span></div>
+
 <div><b>Jumlah Tiket:</b> <span id="jumlahTiket">0</span></div>
+
 <div><b>Nama:</b> <span id="namaPemesan">-</span></div>
+
 <div><b>WhatsApp:</b> <span id="waPemesan">-</span></div>
-</div>
+
 </div>
 
+</div>
 <div class="card qrwrap">
 
+
 <div class="timer-box">
-<div class="timer-title">SELESAIKAN PEMBAYARAN DALAM</div>
-<div id="timer" class="timer">15:00</div>
+
+<div class="timer-title">
+SELESAIKAN PEMBAYARAN DALAM
 </div>
+
+<div id="timer" class="timer">
+15:00
+</div>
+
+</div>
+
 
 <div class="qr">
+
 <img src="qris.png" alt="QRIS">
-</div>
 
 </div>
+
+
+</div>
+
+
+
 
 <div class="card">
 
+
 <label for="file">
+
 <div class="upload">
-<h3>Upload Bukti Pembayaran</h3>
-<p>Pilih file bukti pembayaran</p>
+
+<h3>
+Upload Bukti Pembayaran
+</h3>
+
+<p>
+Pilih file bukti pembayaran
+</p>
+
 </div>
+
 </label>
 
-<input id="file" type="file" hidden accept="image/*">
+
+<input 
+id="file"
+type="file"
+hidden
+accept="image/*">
+
+
 
 <div id="result" class="result">
+
 <div id="fname"></div>
-<div class="ok">✓ Bukti pembayaran berhasil dipilih</div>
+
+<div class="ok">
+✓ Bukti pembayaran berhasil dipilih
 </div>
+
+</div>
+
+
 
 <div class="confirm">
+
 <input type="checkbox" id="cek">
-<label for="cek">Saya menyatakan telah melakukan pembayaran dan mengunggah bukti pembayaran yang valid.</label>
+
+
+<label>
+
+Saya menyatakan telah melakukan pembayaran dan mengunggah bukti pembayaran yang valid.
+
+</label>
+
 </div>
 
-<button id="btn" disabled>KONFIRMASI PEMBAYARAN</button>
+
+
+<button id="btn" disabled>
+
+KONFIRMASI PEMBAYARAN
+
+</button>
+
+
 
 </div>
 
+
 </div>
+
+
+
+
+
+<!-- LOADING -->
 
 <div id="loading" class="loading">
-<div class="spin"></div>
-<h2 style="margin-top:20px">Memproses Pembayaran...</h2>
+
+
+<div class="loader"></div>
+
+
+<h2 style="margin-top:20px">
+
+Memproses Pembayaran...
+
+</h2>
+
+
+<div class="progress">
+
+<div class="bar"></div>
+
 </div>
 
+
+<p style="margin-top:15px;color:#FFD700">
+
+Mohon tunggu, sedang verifikasi...
+
+</p>
+
+
+</div>
+
+
+
+
+
+
 <script>
+
+
+// EMAILJS
+
+emailjs.init("X-gV7g_1PhqPZpYqc");
+
+
+
+
+// DATA ORDER
+
+
 if(!localStorage.getItem('orderId')){
-localStorage.setItem('orderId','SOD-'+Date.now());
+
+localStorage.setItem(
+'orderId',
+'SOD-'+Date.now()
+);
+
 }
 
-document.getElementById('orderId').textContent=localStorage.getItem('orderId');
 
-document.getElementById('total').textContent='Rp '+
-Number(localStorage.getItem('totalPembayaran')||0).toLocaleString('id-ID');
 
-document.getElementById('jenisTiket').textContent=localStorage.getItem('jenisTiket')||'-';
-document.getElementById('jumlahTiket').textContent=localStorage.getItem('jumlahTiket')||'0';
-document.getElementById('namaPemesan').textContent=localStorage.getItem('nama')||'-';
-document.getElementById('waPemesan').textContent=localStorage.getItem('wa')||'-';
+document.getElementById('orderId')
+.textContent =
+localStorage.getItem('orderId');
+
+
+
+
+let total =
+localStorage.getItem('totalPembayaran')||0;
+
+
+document.getElementById('total')
+.textContent =
+'Rp '+
+Number(total).toLocaleString('id-ID');
+
+
+
+document.getElementById('jenisTiket')
+.textContent =
+localStorage.getItem('jenisTiket')||'-';
+
+
+
+document.getElementById('jumlahTiket')
+.textContent =
+localStorage.getItem('jumlahTiket')||'0';
+
+
+
+document.getElementById('namaPemesan')
+.textContent =
+localStorage.getItem('nama')||'-';
+
+
+
+document.getElementById('waPemesan')
+.textContent =
+localStorage.getItem('wa')||'-';
+
+
+
+
+
+// TIMER
+
 
 let duration=3*60;
 
-function updateTimer(){
-const m=Math.floor(duration/60);
-const s=duration%60;
 
-document.getElementById('timer').textContent=
-String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+function updateTimer(){
+
+
+let m=Math.floor(duration/60);
+
+let s=duration%60;
+
+
+document.getElementById('timer')
+.textContent =
+String(m).padStart(2,'0')
++':'+
+String(s).padStart(2,'0');
+
+
 
 if(duration<=0){
-alert('Waktu pembayaran telah habis.');
+
+alert(
+'Waktu pembayaran habis'
+);
+
 window.location.href='index.html';
+
 return;
+
 }
+
 
 duration--;
+
+
 }
 
+
+
 updateTimer();
+
 setInterval(updateTimer,1000);
+
+
+
+
+
+// UPLOAD
+
 
 let uploaded=false;
 
-const file=document.getElementById('file');
-const cek=document.getElementById('cek');
-const btn=document.getElementById('btn');
+
+const file =
+document.getElementById('file');
+
+
+const cek =
+document.getElementById('cek');
+
+
+const btn =
+document.getElementById('btn');
+
+
+
 
 function updateBtn(){
-btn.disabled=!(uploaded && cek.checked);
+
+btn.disabled =
+!(uploaded && cek.checked);
+
 }
 
-file.addEventListener('change',()=>{
+
+
+file.addEventListener(
+'change',
+()=>{
+
+
 if(file.files.length){
+
+
 uploaded=true;
-document.getElementById('result').style.display='block';
-document.getElementById('fname').textContent='📎 '+file.files[0].name;
+
+
+document.getElementById('result')
+.style.display='block';
+
+
+
+document.getElementById('fname')
+.textContent =
+'📎 '+file.files[0].name;
+
+
+
 updateBtn();
+
+
 }
+
+
 });
 
-cek.addEventListener('change',updateBtn);
 
-btn.addEventListener('click',()=>{
-document.getElementById('loading').style.display='flex';
+
+cek.addEventListener(
+'change',
+updateBtn
+);
+
+
+
+
+
+
+
+// KIRIM EMAILJS + LOADING 60 DETIK
+
+
+btn.addEventListener(
+'click',
+()=>{
+
+
+document.getElementById('loading')
+.style.display='flex';
+
+
+
+
+let data = {
+
+
+nama:
+localStorage.getItem('nama')||'-',
+
+
+identitas:
+localStorage.getItem('identitas')||'-',
+
+
+nomor_id:
+localStorage.getItem('nomor_id')||'-',
+
+
+email:
+localStorage.getItem('email')||'-',
+
+
+whatsapp:
+localStorage.getItem('wa')||'-',
+
+
+alamat:
+localStorage.getItem('alamat')||'-',
+
+
+jenis_tiket:
+localStorage.getItem('jenisTiket')||'-',
+
+
+jumlah_tiket:
+localStorage.getItem('jumlahTiket')||'0',
+
+
+total_bayar:
+localStorage.getItem('totalPembayaran')||'0'
+
+
+};
+
+
+
+
+
+emailjs.send(
+
+"service_yd8tw3d",
+
+"template_j1qoktj",
+
+data
+
+
+)
+
+.then(()=>{
+
+
+console.log(
+"Email berhasil dikirim"
+);
+
+
+})
+
+.catch((err)=>{
+
+
+console.log(err);
+
+
+});
+
+
+
+
+
+
+// redirect 60 detik
+
 
 setTimeout(()=>{
-window.location.href='succes.html';
-},3000);
+
+
+window.location.href=
+"succes.html";
+
+
+
+},60000);
+
+
+
+
+
 });
+
+
+
 </script>
+
+
 
 </body>
 </html>
