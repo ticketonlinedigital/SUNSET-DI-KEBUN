@@ -1,124 +1,655 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>Sunset di Kebun - Official Ticket</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(180deg,#10a8ed,#ffd19c);padding-bottom:110px}
-.navbar{margin:15px auto;width:92%;background:#ffffffcc;padding:15px 20px;border-radius:25px;display:flex;justify-content:space-between;font-weight:bold}
-.hero{text-align:center;padding:20px}
-.tag{display:inline-block;background:#ffd54b;padding:12px 20px;border-radius:40px;font-weight:bold}
-.poster{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin:25px 0}
-.poster img{width:100%;border-radius:25px}
-.box{background:#ffffff99;border-radius:30px;padding:25px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{background:white;padding:25px;border-radius:25px}
-.price{font-size:28px;font-weight:bold}
-.stock{padding:10px;border-radius:15px;font-weight:bold}
-.warn{background:#ffe48a;animation:pulse 1s infinite}
-.normal{background:#b6f5ff;animation:float 1.5s infinite}
-.qty{display:flex;justify-content:center;align-items:center;gap:20px;margin:20px}
-.qty button{width:45px;height:45px;border:0;border-radius:50%;background:#087cf0;color:white;font-size:25px}
-.add{background:#eef3ff;padding:12px;border-radius:15px;font-weight:bold;text-align:center}
-.buy{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:85%;padding:17px;border:0;border-radius:22px;background:#cfd8ff;color:white;font-weight:bold;font-size:18px}
-.buy.active{background:#3f5bea}
-input{width:100%;padding:14px;border-radius:15px;border:1px solid #ccc;margin-top:15px}
-@keyframes pulse{50%{transform:scale(1.08)}}@keyframes float{50%{transform:translateY(-6px)}}
+
+*{
+box-sizing:border-box
+}
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(180deg,#10a8ed,#ffd19c);
+padding-bottom:110px
+}
+
+
+.navbar{
+
+margin:15px auto;
+width:92%;
+background:#ffffffcc;
+padding:15px 20px;
+border-radius:25px;
+display:flex;
+justify-content:space-between;
+font-weight:bold;
+
+}
+
+
+
+.hero{
+text-align:center;
+padding:20px
+}
+
+
+
+.tag{
+
+display:inline-block;
+background:#ffd54b;
+padding:12px 20px;
+border-radius:40px;
+font-weight:bold
+
+}
+
+
+
+.poster{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin:25px 0
+
+}
+
+
+
+.poster img{
+
+width:100%;
+border-radius:25px
+
+}
+
+
+
+.box{
+
+background:#ffffff99;
+border-radius:30px;
+padding:25px
+
+}
+
+
+
+.cards{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px
+
+}
+
+
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:25px
+
+}
+
+
+
+.price{
+
+font-size:28px;
+font-weight:bold
+
+}
+
+
+
+.stock{
+
+padding:10px;
+border-radius:15px;
+font-weight:bold
+
+}
+
+
+
+.warn{
+
+background:#ffe48a;
+animation:pulse 1s infinite
+
+}
+
+
+
+.normal{
+
+background:#b6f5ff;
+animation:float 1.5s infinite
+
+}
+
+
+
+.qty{
+
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+margin:20px
+
+}
+
+
+
+.qty button{
+
+width:45px;
+height:45px;
+border:0;
+border-radius:50%;
+background:#087cf0;
+color:white;
+font-size:25px
+
+}
+
+
+
+.add{
+
+background:#eef3ff;
+padding:12px;
+border-radius:15px;
+font-weight:bold;
+text-align:center
+
+}
+
+
+
+.buy{
+
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+width:85%;
+padding:17px;
+border:0;
+border-radius:22px;
+background:#cfd8ff;
+color:white;
+font-weight:bold;
+font-size:18px
+
+}
+
+
+
+.buy.active{
+
+background:#3f5bea
+
+}
+
+
+
+input{
+
+width:100%;
+padding:14px;
+border-radius:15px;
+border:1px solid #ccc;
+margin-top:15px
+
+}
+
+
+
+@keyframes pulse{
+
+50%{
+transform:scale(1.08)
+}
+
+}
+
+
+
+@keyframes float{
+
+50%{
+transform:translateY(-6px)
+}
+
+}
+
+
 </style>
+
 </head>
+
+
 <body>
 
-<div class="navbar"><div>SUNSET DI KEBUN</div><div>Tiket</div></div>
 
-<div class="hero">
-<h1>Sunset di Kebun</h1>
-<div class="tag">Music Show with Green, Conservation, and Culture Movement</div>
+<div class="navbar">
 
-<div class="poster">
-<img src="poster1.jpg">
-<img src="poster2.jpg">
+<div>
+SUNSET DI KEBUN
 </div>
 
+<div>
+Tiket
+</div>
+
+</div>
+
+
+
+<div class="hero">
+
+
+<h1>
+Sunset di Kebun
+</h1>
+
+
+<div class="tag">
+
+Music Show with Green, Conservation, and Culture Movement
+
+</div>
+
+
+
+<div class="poster">
+
+
+<img src="poster1.jpg">
+
+<img src="poster2.jpg">
+
+
+</div>
+
+
+
+
 <div class="box">
+
+
 <h2>Pilih Tiket</h2>
+
+
 
 <div class="cards">
 
+
+
 <div class="card">
+
 <h2>1 DAY PASS</h2>
+
 <p>Akses festival 1 hari penuh</p>
-<div class="price">Rp250.000</div>
-<div class="stock warn">🔥 HAMPIR HABIS</div>
-<div class="add">ADDITIONAL TICKET</div>
+
+
+<div class="price">
+Rp250.000
+</div>
+
+
+
+<div class="stock warn">
+🔥 HAMPIR HABIS
+</div>
+
+
+<div class="add">
+ADDITIONAL TICKET
+</div>
+
+
+
 <div class="qty">
-<button onclick="ubah('day1',-1)">−</button>
-<span id="day1">0</span>
-<button onclick="ubah('day1',1)">+</button>
+
+<button onclick="ubah('day1',-1)">
+−
+</button>
+
+
+<span id="day1">
+0
+</span>
+
+
+<button onclick="ubah('day1',1)">
++
+</button>
+
+
 </div>
+
+
 </div>
+
+
+
+
+
+
 
 <div class="card">
+
+
 <h2>2 DAY PASS</h2>
-<p>Akses festival selama 2 hari</p>
-<div class="price">Rp450.000</div>
-<div class="stock normal">⚡ TERSISA 9</div>
-<div class="add">ADDITIONAL TICKET</div>
-<div class="qty">
-<button onclick="ubah('day2',-1)">−</button>
-<span id="day2">0</span>
-<button onclick="ubah('day2',1)">+</button>
-</div>
+
+
+<p>
+Akses festival selama 2 hari
+</p>
+
+
+
+<div class="price">
+Rp450.000
 </div>
 
+
+
+<div class="stock normal">
+
+⚡ TERSISA 9
+
 </div>
+
+
+<div class="add">
+
+ADDITIONAL TICKET
+
+</div>
+
+
+
+<div class="qty">
+
+
+<button onclick="ubah('day2',-1)">
+−
+</button>
+
+
+<span id="day2">
+0
+</span>
+
+
+<button onclick="ubah('day2',1)">
++
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
 
 <input id="kode" placeholder="Kode Promo B1G1SunsetJKT">
+
+
 <p id="promo"></p>
 
-<h3>Total Tiket: <span id="total">0</span></h3>
-</div>
+
+<h3>
+
+Total Tiket:
+<span id="total">
+0
+</span>
+
+</h3>
+
+
 </div>
 
-<button id="buy" class="buy">🎟️ Beli Tiket</button>
+
+</div>
+
+
+
+
+<button id="buy" class="buy">
+
+🎟️ Beli Tiket
+
+</button>
+
+
+
+
 
 <script>
-let tiket={day1:0,day2:0};
+
+
+let tiket={
+
+day1:0,
+day2:0
+
+};
+
+
 let bonus=0;
 
+
+
+
 function cekPromo(){
-bonus=(kode.value=="B1G1SunsetJKT" && tiket.day1+tiket.day2>0)?1:0;
-promo.innerHTML=bonus?"🎉 Promo aktif: Bonus 1 tiket":"";
+
+
+bonus=
+
+(kode.value=="B1G1SunsetJKT" &&
+(tiket.day1+tiket.day2)>0)
+
+?1:0;
+
+
+
+promo.innerHTML=
+
+bonus
+
+?
+
+"🎉 Promo aktif: Bonus 1 tiket"
+
+:
+
+"";
+
 }
+
+
+
 
 kode.oninput=cekPromo;
 
+
+
+
+
 function ubah(t,v){
+
+
 tiket[t]+=v;
-if(tiket[t]<0)tiket[t]=0;
-cekPromo();
-tampil();
+
+
+if(tiket[t]<0){
+
+tiket[t]=0;
+
 }
+
+
+cekPromo();
+
+tampil();
+
+
+}
+
+
+
 
 function tampil(){
+
+
 day1.innerHTML=tiket.day1;
+
 day2.innerHTML=tiket.day2;
-total.innerHTML=tiket.day1+tiket.day2+bonus;
-buy.classList.toggle("active",(tiket.day1+tiket.day2)>0);
+
+
+
+total.innerHTML=
+
+tiket.day1+tiket.day2+bonus;
+
+
+
+buy.classList.toggle(
+
+"active",
+
+(tiket.day1+tiket.day2)>0
+
+);
+
+
 }
+
+
+
+
+
 
 buy.onclick=function(){
-if(tiket.day1+tiket.day2<=0){
+
+
+if(
+
+(tiket.day1+tiket.day2)
+
+<=0
+
+){
+
 alert("Pilih tiket dulu");
+
 return;
+
 }
-localStorage.setItem("jumlahTiket",tiket.day1+tiket.day2+bonus);
+
+
+
+let jenis="";
+
+let harga=0;
+
+
+
+
+if(tiket.day1>0){
+
+
+jenis="1 DAY PASS";
+
+harga=250000;
+
+
+}else{
+
+
+jenis="2 DAY PASS";
+
+harga=450000;
+
+
+}
+
+
+
+let jumlah=
+
+tiket.day1+tiket.day2+bonus;
+
+
+
+
+
+localStorage.setItem(
+"jenisTiket",
+jenis
+);
+
+
+
+localStorage.setItem(
+"jumlahTiket",
+jumlah
+);
+
+
+
+localStorage.setItem(
+"totalPembayaran",
+harga
+);
+
+
+
+localStorage.setItem(
+"promo",
+bonus>0 ? "B1G1SunsetJKT" : ""
+);
+
+
+
+
 window.location.href="from.html";
+
 }
+
+
+
 
 tampil();
+
+
 </script>
 
+
 </body>
+
 </html>
