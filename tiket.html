@@ -556,76 +556,34 @@ buy.classList.toggle(
 
 buy.onclick=function(){
 
-
-if(
-
-(tiket.day1+tiket.day2)
-
-<=0
-
-){
-
+if((tiket.day1+tiket.day2)<=0){
 alert("Pilih tiket dulu");
-
 return;
-
 }
 
-
-
-let jenis="";
-
-let harga=0;
-
-
-
+let daftarTiket=[];
+let totalHarga=0;
 
 if(tiket.day1>0){
-
-
-jenis="1 DAY PASS";
-
-harga=250000;
-
-
-}else{
-
-
-jenis="2 DAY PASS";
-
-harga=450000;
-
-
+daftarTiket.push("1 DAY PASS x "+tiket.day1);
+totalHarga += tiket.day1 * 250000;
 }
 
+if(tiket.day2>0){
+daftarTiket.push("2 DAY PASS x "+tiket.day2);
+totalHarga += tiket.day2 * 450000;
+}
 
+if(bonus>0){
+daftarTiket.push("BONUS TIKET x "+bonus);
+}
 
 let jumlah=
-
 tiket.day1+tiket.day2+bonus;
 
-
-
-
-
-localStorage.setItem(
-"jenisTiket",
-jenis
-);
-
-
-
-localStorage.setItem(
-"jumlahTiket",
-jumlah
-);
-
-
-
-localStorage.setItem(
-"totalPembayaran",
-harga
-);
+localStorage.setItem("jenisTiket",daftarTiket.join(" | "));
+localStorage.setItem("jumlahTiket",jumlah);
+localStorage.setItem("totalPembayaran",totalHarga);
 
 
 
